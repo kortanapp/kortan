@@ -75,6 +75,7 @@ section[data-view]{padding-block:56px 72px;display:grid;gap:72px}
 .appcard{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;text-decoration:none}
 .appcard:hover{border-color:var(--accent)}
 .appicon{width:56px;height:56px;border-radius:13px;background:var(--fg);color:var(--bg);display:grid;place-items:center;font:800 26px var(--display);font-stretch:110%}
+svg.appicon{background:none;border-radius:0}
 .appcard h3{font-size:22px;font-weight:700}
 .appcard p{color:var(--muted);font-size:15px;margin-top:4px}
 .appcard .meta{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;font-size:13px}
@@ -189,7 +190,7 @@ footer .links{display:flex;gap:18px;flex-wrap:wrap}
     <p class="label"><span lang="fr">Les apps</span><span lang="en">The apps</span></p>
     <div class="apps-grid">
       <a class="appcard" href="#rushfold">
-        <div class="appicon">R<span class="dot">.</span></div>
+        <svg class="appicon" viewBox="0 0 256 256" aria-hidden="true"><rect width="256" height="256" rx="48" fill="#081F38"/><g transform="translate(25.6 28.8) scale(3.2)"><rect x="20" y="8" width="36" height="24" rx="3" fill="none" stroke="#359BE1" stroke-opacity=".55" stroke-width="5"/><rect x="14" y="17" width="36" height="24" rx="3" fill="none" stroke="#359BE1" stroke-opacity=".9" stroke-width="5"/><rect x="8" y="27" width="36" height="27" rx="3" fill="#2F86C8"/><path d="M21 33.5 L32 40.5 L21 47.5 Z" fill="#081F38"/></g></svg>
         <div>
           <h3>RushFold</h3>
           <p><span lang="fr">Coupe tes rushes vidéo en quelques secondes, sans perte de qualité.</span><span lang="en">Trim your video rushes in seconds, with no quality loss.</span></p>

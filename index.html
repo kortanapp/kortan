@@ -36,7 +36,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-
 a{color:inherit}
 h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.05}
 p{margin:0}
-.dot{color:var(--accent)}
+.dot{display:inline-block;width:max(.2em,4px);height:max(.2em,4px);margin-left:.04em;background:var(--muted)}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
@@ -151,7 +151,7 @@ footer .links{display:flex;gap:18px;flex-wrap:wrap}
 <body>
 <div class="wrap" id="app" data-lang="fr">
 <header>
-  <a class="logo" href="#">kortan<span class="dot">.</span></a>
+  <a class="logo" href="#">kortan<span class="dot"></span></a>
   <nav aria-label="Navigation">
     <a href="#" data-nav="home"><span lang="fr">Apps</span><span lang="en">Apps</span></a>
     <a href="#rushfold" data-nav="rushfold">RushFold</a>
@@ -305,7 +305,7 @@ footer .links{display:flex;gap:18px;flex-wrap:wrap}
 </section>
 
 <footer>
-  <span>kortan<span class="dot">.</span> | Lausanne, <span lang="fr">Suisse</span><span lang="en">Switzerland</span> | kortan.support@proton.me</span>
+  <span>kortan<span class="dot"></span> | Lausanne, <span lang="fr">Suisse</span><span lang="en">Switzerland</span> | kortan.support@proton.me</span>
   <span class="links">
     <a href="#rushfold" data-todo="legal"><span lang="fr">CGV</span><span lang="en">Terms</span></a>
     <a href="#rushfold" data-todo="legal"><span lang="fr">Confidentialité</span><span lang="en">Privacy</span></a>

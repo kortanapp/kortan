@@ -97,7 +97,7 @@ Avant chaque mise en ligne, vérifie avec les outils déjà présents dans ton e
 ## Contexte (décisions prises)
 
 - **Paiement** : Stripe Managed Payments (Stripe est Merchant of Record et gère la TVA), via un Payment Link. Après paiement, retour sur `https://<domaine>/#merci`.
-- **Prix** : licence à vie 14.90 CHF / 14.90 €, prix de lancement 9.90 CHF / 9.90 € jusqu'au 30 novembre. Valable pour toutes les versions 1.x.
+- **Prix** : licence à vie 14.90 CHF / 14.90 €, prix de lancement 9.90 CHF / 9.90 € jusqu'au 31 décembre. Valable pour toutes les versions 1.x.
 - **Démo** : même .exe que la version complète, limitée à 3 exports par jour. La licence, vérifiée hors ligne, débloque l'app.
 - **Téléchargement** : GitHub Releases d'un dépôt public séparé (ex. `kortan/rushfold`), fichier toujours nommé `RushFold-Setup.exe`, lien permanent `…/releases/latest/download/RushFold-Setup.exe`.
 - **Support** : `kortan.support@proton.me`.
@@ -106,5 +106,5 @@ Avant chaque mise en ligne, vérifie avec les outils déjà présents dans ton e
 ## Plus tard (seulement sur demande)
 - Pages CGV, Confidentialité, Mentions légales (une vue de plus dans `index.html` plutôt que de nouveaux fichiers, si possible).
 - FAQ : mention `LINK.COM*` sur le relevé bancaire et remboursements alignés sur Stripe.
-- 1er décembre : passage du prix de lancement (9.90) au prix normal (14.90), sur le site et dans Stripe.
+- 1er janvier : passage du prix de lancement (9.90) au prix normal (14.90), sur le site et dans Stripe.
 - Nouvelles apps : nouvelle carte sur l'accueil et nouvelle vue.

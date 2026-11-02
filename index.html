@@ -94,24 +94,10 @@ svg.appicon{background:none;border-radius:0}
 .launch .price{font:700 28px var(--display);font-stretch:110%}
 .launch .after{color:var(--muted)}
 
-/* timeline demo */
 .deck{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:18px}
-.deck-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
-.file{font:500 14px var(--mono);min-width:0;overflow-wrap:anywhere}
-.track{position:relative;height:64px;border-radius:8px;background:var(--dim);overflow:hidden}
-.waves{position:absolute;inset:0;display:flex;align-items:center;gap:2px;padding:0 4px;opacity:.55}
-.waves i{flex:1;background:var(--fg);border-radius:2px;min-width:1px}
-.keep{position:absolute;top:0;bottom:0;background:color-mix(in srgb,var(--accent) 32%,transparent);border-left:3px solid var(--accent);border-right:3px solid var(--accent)}
-.keep::before,.keep::after{position:absolute;top:4px;font:600 11px var(--mono);color:#fff;background:var(--accent);padding:1px 5px;border-radius:3px}
-.keep::before{content:"IN";left:3px}
-.keep::after{content:"OUT";right:3px}
-.sliders{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px 24px}
-.sliders label{display:grid;gap:4px;font-size:13px;color:var(--muted)}
-.sliders input{width:100%;accent-color:var(--accent)}
-.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;border-top:1px solid var(--line);padding-top:16px}
-.readout div{display:grid;gap:2px}
-.readout b{font:500 20px var(--mono);font-variant-numeric:tabular-nums}
 .note{font-size:13px;color:var(--muted)}
+.rf-hero picture{display:block}
+.rf-hero picture img{display:block;width:100%;height:auto;border-radius:16px}
 
 /* features */
 .h2{font-size:clamp(28px,4vw,40px);font-weight:700;font-stretch:108%;letter-spacing:-.02em}
@@ -225,26 +211,10 @@ footer .links{display:flex;gap:18px;flex-wrap:wrap}
       <a class="btn ghost" href="#rushfold" data-link="download"><span lang="fr">Télécharger la démo</span><span lang="en">Download the demo</span></a>
     </div>
 
-    <div class="deck" aria-label="Démonstration IN/OUT">
-      <div class="deck-top">
-        <span class="file">session_ranked_0412.mkv</span>
-        <span class="label">1:12:00 · 38.4 GB</span>
-      </div>
-      <div class="track" id="track">
-        <div class="waves" id="waves" aria-hidden="true"></div>
-        <div class="keep" id="keep"></div>
-      </div>
-      <div class="sliders">
-        <label for="in-r"><span>IN · <span class="mono" id="in-tc">00:14:30:00</span></span><input id="in-r" type="range" min="0" max="4319" value="870"></label>
-        <label for="out-r"><span>OUT · <span class="mono" id="out-tc">00:41:10:00</span></span><input id="out-r" type="range" min="1" max="4320" value="2470"></label>
-      </div>
-      <div class="readout">
-        <div><span class="label"><span lang="fr">Gardé</span><span lang="en">Kept</span></span><b id="dur">26:40</b></div>
-        <div><span class="label"><span lang="fr">Fichier exporté</span><span lang="en">Exported file</span></span><b id="size">14.2 GB</b></div>
-        <div><span class="label"><span lang="fr">Réencodage</span><span lang="en">Re-encoding</span></span><b><span lang="fr">aucun</span><span lang="en">none</span></b></div>
-      </div>
-      <p class="note"><span lang="fr">Exemple : déplace IN et OUT pour voir ce que tu gardes. Les coupes sans perte se calent sur l'image clé la plus proche.</span><span lang="en">Example: move IN and OUT to see what you keep. Lossless cuts snap to the nearest keyframe.</span></p>
-    </div>
+    <picture>
+      <source type="image/webp" srcset="rushfold-hero-1200.webp 1200w, rushfold-hero-2000.webp 2000w" sizes="(min-width:1072px) 1040px, calc(100vw - 32px)">
+      <img src="rushfold-hero-2000.png" width="2000" height="1250" alt="RushFold : explorateur de rushes, barre IN/OUT et export sans perte" fetchpriority="high">
+    </picture>
   </div>
 
   <div>
@@ -388,29 +358,6 @@ $$("[data-link],[data-todo]").forEach(a => {
   };
 });
 
-// Démo IN/OUT : fichier d'exemple de 72 min (1 pas = 1 s)
-const TOTAL = 4320, GB = 38.4, inR = $("#in-r"), outR = $("#out-r"), keep = $("#keep");
-let seed = 7;
-for (let i = 0; i < 90; i++) {
-  seed = (seed * 9301 + 49297) % 233280;
-  const bar = document.createElement("i");
-  bar.style.height = 18 + seed / 233280 * 70 + "%";
-  $("#waves").append(bar);
-}
-const p2 = n => String(n).padStart(2, "0");
-const tc = s => [s / 3600 | 0, s % 3600 / 60 | 0, s % 60, 0].map(p2).join(":");
-const dur = s => (s >= 3600 ? (s / 3600 | 0) + ":" + p2(s % 3600 / 60 | 0) : s / 60 | 0) + ":" + p2(s % 60);
-function upd(src) {
-  let a = +inR.value, b = +outR.value;
-  if (a >= b) src === inR ? inR.value = a = b - 1 : outR.value = b = a + 1;
-  keep.style.left = a / TOTAL * 100 + "%";
-  keep.style.width = (b - a) / TOTAL * 100 + "%";
-  $("#in-tc").textContent = tc(a);
-  $("#out-tc").textContent = tc(b);
-  $("#dur").textContent = dur(b - a);
-  $("#size").textContent = ((b - a) / TOTAL * GB).toFixed(1) + " GB";
-}
-inR.oninput = () => upd(inR); outR.oninput = () => upd(outR); upd();
 </script>
 </body>
 </html>

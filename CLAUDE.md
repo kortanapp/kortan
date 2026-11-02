@@ -24,6 +24,7 @@ Ces règles passent avant tout le reste, à chaque modification.
 |---|---|
 | `index.html` | Tout le site : accueil, page RushFold, page Merci, CSS, JS, favicon. |
 | `fonts/` (3 fichiers woff2) | Polices du design, réduites aux graisses et caractères utilisés (88 Ko au total). Hébergées ici plutôt que chez Google pour la vie privée des visiteurs. Les intégrer dans le HTML alourdirait la page d'un tiers. |
+| `rushfold-hero-*` (2 WebP + 1 PNG) | Capture de l'app affichée en tête de la page RushFold. Le navigateur charge un WebP (15 Ko en 1200 px, 32 Ko en 2000 px) ; le PNG (298 Ko) n'est qu'un secours pour les très vieux navigateurs. Une image ne peut pas être intégrée au HTML sans l'alourdir. |
 | `.nojekyll` | Fichier vide : GitHub Pages sert les fichiers tels quels, sans étape de build. |
 | `CLAUDE.md` | Ce document. Public dans le dépôt : n'y écris jamais rien de confidentiel. |
 
@@ -50,7 +51,7 @@ Tu endosses chacun de ces rôles selon la tâche. Avant de livrer, passe ta modi
 - Responsive : aucun défilement horizontal à 400 px de large.
 
 ### 3. Performance
-- **Budget : 150 Ko** pour la page complète (actuellement environ 118 Ko, dont environ 9 Ko de HTML compressé).
+- **Budget : 150 Ko** pour la page complète (actuellement environ 130 Ko sur la page RushFold : polices 88 Ko, image WebP 32 Ko, HTML compressé environ 9 Ko).
 - Aucune ressource externe : pas de CDN, pas de Google Fonts, pas de script tiers.
 - Polices : `font-display: swap`, préchargement des deux principales, aucune nouvelle police.
 - Images futures : WebP ou AVIF, `width`/`height` fixés, `loading="lazy"` hors du premier écran.
@@ -74,7 +75,7 @@ Tu endosses chacun de ces rôles selon la tâche. Avant de livrer, passe ta modi
 ### 6. Testeur (QA et accessibilité)
 Avant chaque mise en ligne, vérifie avec les outils déjà présents dans ton environnement (sinon, demande au propriétaire de tester via PageSpeed Insights dans son navigateur) :
 - aucune erreur dans la console, aucune requête vers un autre domaine, aucune violation de CSP ;
-- accueil, `#rushfold`, `#merci`, bascule FR/EN, curseurs IN/OUT ;
+- accueil, `#rushfold`, `#merci`, bascule FR/EN, image de la page RushFold nette et sans débordement ;
 - largeur mobile (~400 px) et desktop, thème clair et sombre ;
 - navigation au clavier, focus visible, contrastes lisibles ;
 - poids total sous 150 Ko.

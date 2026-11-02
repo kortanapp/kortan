@@ -20,7 +20,7 @@
 @font-face{font-family:"JetBrains Mono";src:url(fonts/jetbrains-mono.woff2) format("woff2");font-weight:400 500;font-display:swap}
 :root{
   --bg:#0A0C10; --surface:#12151B; --fg:#F1F3F6; --muted:#98A1B0; --line:#232833; --edge:#3A4251;
-  --accent:#3B82F6; --accent-ink:#7EA9FA; --dim:#2A303B; color-scheme:dark;
+  --accent:#3B82F6; --accent-ink:#7EA9FA; --logo:#2F86C8; --dim:#2A303B; color-scheme:dark;
   --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
   --body:"Instrument Sans", "Segoe UI", system-ui, sans-serif;
   --mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
@@ -107,6 +107,7 @@ svg.appicon{background:none}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px;counter-reset:s}
 .steps div{border-top:2px solid var(--fg);padding-top:14px;display:grid;gap:6px}
 .steps div::before{counter-increment:s;content:counter(s);font:500 13px var(--mono);color:var(--accent-ink)}
+[data-view="rushfold"] .steps div::before{color:var(--logo)}
 .steps strong{font:700 20px var(--display)}
 .steps p{color:var(--muted);font-size:15px}
 .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:24px}
@@ -122,7 +123,7 @@ svg.appicon{background:none}
 .plan .big{font:800 40px var(--display);font-stretch:110%;letter-spacing:-.02em}
 .plan ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
 .plan li{display:grid;grid-template-columns:18px 1fr;gap:8px}
-.plan li::before{content:"✓";color:var(--accent-ink);font-weight:700}
+.plan li::before{content:"✓";color:var(--logo);font-weight:700}
 .plan li.no::before{content:"–";color:var(--muted)}
 .plan li.no{color:var(--muted)}
 

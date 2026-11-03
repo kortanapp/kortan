@@ -151,6 +151,9 @@ details p{color:var(--muted);margin-top:10px;max-width:68ch}
 .seg{display:inline-flex;border:1px solid var(--edge)}
 .seg button{font:600 14px var(--body);padding:9px 16px;background:transparent;color:var(--muted);border:0;cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.plan:not(.full){display:flex;flex-direction:column}
+.plan:not(.full)>.btn{margin-top:auto;justify-content:center}
+.plan.full>.btn,.plan.full>div>.btn{justify-content:center}
 /* merci */
 [data-view="merci"] .steps div::before{color:var(--logo)}
 [data-view="merci"] .btn:not(.ghost):hover{background:var(--logo);border-color:var(--logo)}

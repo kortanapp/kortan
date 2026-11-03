@@ -20,7 +20,7 @@
 @font-face{font-family:"JetBrains Mono";src:url(fonts/jetbrains-mono.woff2) format("woff2");font-weight:400 500;font-display:swap}
 :root{
   --bg:#0A0C10; --surface:#12151B; --fg:#F1F3F6; --muted:#98A1B0; --line:#232833; --edge:#3A4251;
-  --accent:#3B82F6; --accent-ink:#7EA9FA; --logo:#2F86C8; --dim:#2A303B; color-scheme:dark;
+  --accent:#3B82F6; --accent-ink:#7EA9FA; --logo:#2F86C8;--price:#CFD6E4; --dim:#2A303B; color-scheme:dark;
   --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
   --body:"Instrument Sans", "Segoe UI", system-ui, sans-serif;
   --mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
@@ -139,6 +139,17 @@ details p{color:var(--muted);margin-top:10px;max-width:68ch}
 .specs dt{color:var(--muted)}
 .specs dd{margin:0}
 
+/* services */
+[data-view="services"] .big{color:var(--price)}
+[data-view="services"] .plan li::before{color:var(--muted)}
+[data-view="services"] .btn:not(.ghost):hover{background:var(--logo);border-color:var(--logo)}
+[data-view="services"] .plan.full{grid-template-columns:1fr 1.1fr;column-gap:48px}
+[data-view="services"] .plan.full>*{grid-column:1}
+[data-view="services"] .plan.full>ul{grid-column:2;grid-row:1/span 4;align-self:center}
+@media(max-width:760px){[data-view="services"] .plan.full{grid-template-columns:1fr}[data-view="services"] .plan.full>ul{grid-column:1;grid-row:auto}}
+.seg{display:inline-flex;border:1px solid var(--edge)}
+.seg button{font:600 14px var(--body);padding:9px 16px;background:transparent;color:var(--muted);border:0;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
 /* merci */
 [data-view="merci"] .steps div::before{color:var(--logo)}
 [data-view="merci"] .btn:not(.ghost):hover{background:var(--logo);border-color:var(--logo)}
@@ -163,6 +174,7 @@ footer .links{display:flex;gap:18px;flex-wrap:wrap}
     <a href="#" data-nav="home"><span lang="fr">Apps</span><span lang="en">Apps</span></a>
     <a href="#rushfold" data-nav="rushfold">RushFold</a>
     <a href="#merci" data-nav="merci"><span lang="fr">Ma licence</span><span lang="en">My licence</span></a>
+    <a href="#services" data-nav="services">Services</a>
     <div class="lang" role="group" aria-label="Langue">
       <button id="lang-fr" data-set-lang="fr" aria-pressed="true">FR</button>
       <button id="lang-en" data-set-lang="en" aria-pressed="false">EN</button>
@@ -292,6 +304,130 @@ footer .links{display:flex;gap:18px;flex-wrap:wrap}
   </div>
 </section>
 
+<!-- ============ SERVICES ============ -->
+<section data-view="services" hidden>
+  <div class="thanks">
+    <p class="label"><span lang="fr">Support et services</span><span lang="en">Support and services</span></p>
+    <h1 style="margin-top:12px">Services</h1>
+    <p class="lede"><span lang="fr">Le support est inclus avec chaque licence. Besoin de plus ? Choisis l'offre qui te convient.</span><span lang="en">Support is included with every licence. Need more? Pick the offer that suits you.</span></p>
+  </div>
+
+  <div class="plan full">
+    <h3><span lang="fr">Support inclus</span><span lang="en">Support included</span></h3>
+    <div class="big">0 CHF <span style="font-size:20px;color:var(--muted);font-weight:500"><span lang="fr">inclus avec la licence</span><span lang="en">included with the licence</span></span></div>
+    <ul>
+      <li><span lang="fr">Aide par e-mail</span><span lang="en">Email help</span></li>
+      <li><span lang="fr">Activation et récupération de licence</span><span lang="en">Licence activation and recovery</span></li>
+      <li><span lang="fr">Correction des bugs</span><span lang="en">Bug fixes</span></li>
+      <li><span lang="fr">Mises à jour</span><span lang="en">Updates</span></li>
+      <li>FAQ</li>
+    </ul>
+    <p class="note"><span lang="fr">Réponse sous 2 à 3 jours ouvrés.</span><span lang="en">Reply within 2 to 3 business days.</span></p>
+    <div><a class="btn" href="#services" data-link="support"><span lang="fr">Contacter le support</span><span lang="en">Contact support</span></a></div>
+  </div>
+
+  <div>
+    <h2 class="h2"><span lang="fr">Aide personnelle</span><span lang="en">Personal help</span></h2>
+    <div class="plans">
+      <div class="plan">
+        <h3><span lang="fr">Session prise en main</span><span lang="en">Getting-started session</span></h3>
+        <div class="big">49 CHF</div>
+        <ul>
+          <li><span lang="fr">Visio de 30 min</span><span lang="en">30-min video call</span></li>
+          <li><span lang="fr">Réglages et raccourcis</span><span lang="en">Settings and shortcuts</span></li>
+          <li><span lang="fr">Intégration avec ton logiciel de montage</span><span lang="en">Integration with your editing software</span></li>
+        </ul>
+        <a class="btn ghost" href="#services" data-link="session"><span lang="fr">Réserver</span><span lang="en">Book</span></a>
+      </div>
+      <div class="plan">
+        <h3><span lang="fr">Pack prioritaire 12 mois</span><span lang="en">12-month priority pack</span></h3>
+        <div class="big">99 CHF</div>
+        <ul>
+          <li><span lang="fr">Réponse sous 24 h ouvrées pendant 12 mois</span><span lang="en">Reply within 24 business hours for 12 months</span></li>
+          <li><span lang="fr">1 session visio de 30 min</span><span lang="en">1 video session of 30 min</span></li>
+          <li><span lang="fr">Paiement unique</span><span lang="en">One-time payment</span></li>
+        </ul>
+        <a class="btn ghost" href="#services" data-link="prioritaire"><span lang="fr">Acheter</span><span lang="en">Buy</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h2 class="h2"><span lang="fr">Équipes &amp; écoles</span><span lang="en">Teams &amp; schools</span></h2>
+    <div style="margin-top:20px"><div class="seg" role="group" aria-label="Standard / Éducation">
+      <button type="button" data-edu-set="0" aria-pressed="true">Standard</button>
+      <button type="button" data-edu-set="1" aria-pressed="false"><span lang="fr">Éducation (-30 %)</span><span lang="en">Education (-30%)</span></button>
+    </div></div>
+    <p class="note" style="margin-top:12px"><span lang="fr">Tarif éducation réservé aux écoles et centres de formation, sur justificatif (adresse e-mail de l'établissement).</span><span lang="en">Education rate for schools and training centres only, with proof (institution email address).</span></p>
+    <div class="plans">
+      <div class="plan">
+        <h3><span lang="fr">Pack 5 personnes</span><span lang="en">5-person pack</span></h3>
+        <div class="big" data-std="59 CHF" data-edu="41 CHF">59 CHF</div>
+        <p class="note"><span lang="fr">au lieu de 74.50 CHF</span><span lang="en">instead of 74.50 CHF</span></p>
+        <a class="btn ghost" href="#services" data-link="pack5" data-link-edu="pack5_edu"><span lang="fr">Acheter</span><span lang="en">Buy</span></a>
+      </div>
+      <div class="plan">
+        <h3><span lang="fr">Pack 20 personnes</span><span lang="en">20-person pack</span></h3>
+        <div class="big" data-std="199 CHF" data-edu="139 CHF">199 CHF</div>
+        <p class="note"><span lang="fr">au lieu de 298 CHF</span><span lang="en">instead of 298 CHF</span></p>
+        <a class="btn ghost" href="#services" data-link="pack20" data-link-edu="pack20_edu"><span lang="fr">Acheter</span><span lang="en">Buy</span></a>
+      </div>
+      <div class="plan">
+        <h3><span lang="fr">Aide au déploiement</span><span lang="en">Deployment help</span></h3>
+        <div class="big">149 CHF</div>
+        <ul>
+          <li><span lang="fr">Installation sur plusieurs postes</span><span lang="en">Installation on several computers</span></li>
+          <li><span lang="fr">Petite documentation pour le service informatique</span><span lang="en">Short documentation for your IT team</span></li>
+        </ul>
+        <a class="btn ghost" href="#services" data-link="deploiement"><span lang="fr">Acheter</span><span lang="en">Buy</span></a>
+      </div>
+    </div>
+    <p class="note" style="margin-top:16px"><span lang="fr">Plus de 20 personnes ? Demande un devis.</span><span lang="en">More than 20 people? Ask for a quote.</span></p>
+  </div>
+
+  <div>
+    <h2 class="h2"><span lang="fr">Sur mesure</span><span lang="en">Custom work</span></h2>
+    <div class="plans">
+      <div class="plan">
+        <h3><span lang="fr">Version aux couleurs de ton organisation</span><span lang="en">Version in your organisation's colours</span></h3>
+        <div class="big"><span lang="fr">dès 500 CHF</span><span lang="en">from 500 CHF</span></div>
+        <ul>
+          <li><span lang="fr">Logo, nom, réglages par défaut, installateur dédié</span><span lang="en">Logo, name, default settings, dedicated installer</span></li>
+          <li><span lang="fr">12 mois de mises à jour inclus, puis maintenance à 99 CHF/an</span><span lang="en">12 months of updates included, then maintenance at 99 CHF/year</span></li>
+        </ul>
+        <a class="btn ghost" href="#services" data-link="contact"><span lang="fr">Demander un devis</span><span lang="en">Ask for a quote</span></a>
+      </div>
+      <div class="plan">
+        <h3><span lang="fr">Fonction sur mesure</span><span lang="en">Custom feature</span></h3>
+        <div class="big"><span lang="fr">dès 800 CHF</span><span lang="en">from 800 CHF</span></div>
+        <ul>
+          <li><span lang="fr">Par défaut, la fonction financée est ajoutée à RushFold pour tous les utilisateurs (moins cher pour toi)</span><span lang="en">By default, the funded feature is added to RushFold for all users (cheaper for you)</span></li>
+          <li><span lang="fr">Version exclusive : prix ×2</span><span lang="en">Exclusive version: price ×2</span></li>
+        </ul>
+        <a class="btn ghost" href="#services" data-link="contact"><span lang="fr">Demander un devis</span><span lang="en">Ask for a quote</span></a>
+      </div>
+    </div>
+    <p class="note" style="margin-top:16px"><span lang="fr">Appel de découverte de 15 min offert.</span><span lang="en">Free 15-min discovery call.</span></p>
+  </div>
+
+  <div>
+    <h2 class="h2"><span lang="fr">Questions</span><span lang="en">Questions</span></h2>
+    <div class="faq">
+      <details><summary><span lang="fr">Les corrections de bugs sont-elles payantes ?</span><span lang="en">Are bug fixes paid?</span></summary><p><span lang="fr">Non, jamais. Elles sont toujours incluses.</span><span lang="en">No, never. They are always included.</span></p></details>
+      <details><summary><span lang="fr">J'ai perdu ma licence, que faire ?</span><span lang="en">I lost my licence, what do I do?</span></summary><p><span lang="fr">Écris au support avec l'adresse e-mail utilisée lors de l'achat.</span><span lang="en">Write to support with the email address you used to buy.</span></p></details>
+      <details><summary><span lang="fr">Qui a droit au tarif éducation ?</span><span lang="en">Who gets the education rate?</span></summary><p><span lang="fr">Les écoles et centres de formation, sur justificatif.</span><span lang="en">Schools and training centres, with proof.</span></p></details>
+      <details><summary><span lang="fr">Combien de temps pour une fonction sur mesure ?</span><span lang="en">How long does a custom feature take?</span></summary><p><span lang="fr">Cela dépend de la fonction. Le délai est indiqué dans le devis.</span><span lang="en">It depends on the feature. The timeline is given in the quote.</span></p></details>
+      <details><summary><span lang="fr">En quelle langue est le support ?</span><span lang="en">What language is support in?</span></summary><p><span lang="fr">En français et en anglais.</span><span lang="en">In French and English.</span></p></details>
+    </div>
+    <ul class="note" style="margin:24px 0 0;padding-left:18px;display:grid;gap:4px">
+      <li><span lang="fr">Délais en jours ouvrés (lundi à vendredi, hors jours fériés).</span><span lang="en">Delays are in business days (Monday to Friday, excluding public holidays).</span></li>
+      <li><span lang="fr">Version aux couleurs : 2 séries de retouches incluses.</span><span lang="en">Custom-colours version: 2 rounds of revisions included.</span></li>
+      <li><span lang="fr">Ce qui n'est pas listé dans une offre fait l'objet d'un devis.</span><span lang="en">Anything not listed in an offer is quoted separately.</span></li>
+      <li><span lang="fr">Prix en CHF.</span><span lang="en">Prices in CHF.</span></li>
+    </ul>
+  </div>
+</section>
+
 <!-- ============ MERCI ============ -->
 <section data-view="merci" hidden>
   <div class="thanks">
@@ -320,6 +456,7 @@ footer .links{display:flex;gap:18px;flex-wrap:wrap}
 <footer>
   <span>kortan<span class="dot"></span> | Lausanne, <span lang="fr">Suisse</span><span lang="en">Switzerland</span> | contact@kortan.app</span>
   <span class="links">
+    <a href="#services">Services</a>
     <a href="#rushfold" data-todo="legal"><span lang="fr">CGV</span><span lang="en">Terms</span></a>
     <a href="#rushfold" data-todo="legal"><span lang="fr">Confidentialité</span><span lang="en">Privacy</span></a>
     <a href="#rushfold" data-todo="legal"><span lang="fr">Mentions légales</span><span lang="en">Legal notice</span></a>
@@ -332,16 +469,39 @@ footer .links{display:flex;gap:18px;flex-wrap:wrap}
 /* ===== CONFIGURATION : les seuls liens à renseigner ===== */
 const CONFIG = {
   stripe: "",    // Payment Link Stripe, ex. https://buy.stripe.com/xxxx
-  download: ""   // Installateur, ex. https://github.com/kortan/rushfold/releases/latest/download/RushFold-Setup.exe
+  download: "",  // Installateur, ex. https://github.com/kortan/rushfold/releases/latest/download/RushFold-Setup.exe
+  // Page Services : liens https://… (Stripe) ou mailto:… ; tant qu'un lien n'est pas valide, le bouton affiche une notice
+  support: "mailto:[EMAIL_SUPPORT]",
+  contact: "mailto:[EMAIL_CONTACT]",
+  session: "[LIEN_STRIPE_SESSION]",
+  prioritaire: "[LIEN_STRIPE_PRIORITAIRE]",
+  pack5: "[LIEN_STRIPE_PACK5]",
+  pack5_edu: "[LIEN_STRIPE_PACK5_EDU]",
+  pack20: "[LIEN_STRIPE_PACK20]",
+  pack20_edu: "[LIEN_STRIPE_PACK20_EDU]",
+  deploiement: "[LIEN_STRIPE_DEPLOIEMENT]"
 };
 /* ========================================================= */
 
 const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
 const app = $("#app");
 
-// Vues : #rushfold, #merci, sinon accueil
+// Titre et description par vue (la page Services a les siens)
+const title0 = document.title, descEl = $('meta[name="description"]'), desc0 = descEl.content;
+const seo = {
+  fr: { t: "Services | Kortan", d: "Support inclus avec RushFold, sessions de prise en main, packs équipes et écoles, versions sur mesure. Prix en CHF." },
+  en: { t: "Services | Kortan", d: "Support included with RushFold, onboarding sessions, team and school packs, custom builds. Prices in CHF." }
+};
+let view = "home";
+function meta() {
+  const s = seo[app.dataset.lang || "fr"], on = view === "services";
+  document.title = on ? s.t : title0; descEl.content = on ? s.d : desc0;
+}
+
+// Vues : #rushfold, #merci, #services, sinon accueil
 function route() {
-  const h = location.hash.slice(1), v = ["rushfold", "merci"].includes(h) ? h : "home";
+  const h = location.hash.slice(1), v = view = ["rushfold", "merci", "services"].includes(h) ? h : "home";
+  meta();
   $$("section[data-view]").forEach(s => s.hidden = s.dataset.view !== v);
   $$("[data-nav]").forEach(a => a.dataset.nav === v ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
   scrollTo(0, 0);
@@ -353,26 +513,42 @@ function setLang(l) {
   app.dataset.lang = document.documentElement.lang = l;
   $$("[data-set-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.setLang === l));
   try { localStorage.setItem("kortan-lang", l) } catch (e) {}
+  meta();
 }
 let saved; try { saved = localStorage.getItem("kortan-lang") } catch (e) {}
 setLang(saved || (navigator.language.startsWith("fr") ? "fr" : "en"));
 $$("[data-set-lang]").forEach(b => b.onclick = () => setLang(b.dataset.setLang));
 
-// Liens : réels si renseignés, sinon petite notice
+// Liens : réels si renseignés (https: ou mailto:), sinon petite notice
 const notes = {
   stripe: { fr: "Lien de paiement à venir", en: "Payment link coming soon" },
+  mail: { fr: "Adresse e-mail à venir", en: "Email address coming soon" },
   download: { fr: "Téléchargement à venir", en: "Download coming soon" },
   legal: { fr: "Page en préparation", en: "Page coming soon" }
 };
-const toast = $("#toast"); let tt;
-$$("[data-link],[data-todo]").forEach(a => {
-  const key = a.dataset.link || a.dataset.todo;
-  if (CONFIG[key]) { a.href = CONFIG[key]; return; }
-  a.onclick = e => {
-    e.preventDefault();
-    toast.textContent = notes[key][app.dataset.lang]; toast.hidden = false;
-    clearTimeout(tt); tt = setTimeout(() => toast.hidden = true, 2200);
-  };
+notes.support = notes.contact = notes.mail;
+const toast = $("#toast"); let tt, edu = false;
+function links() {
+  $$("[data-link],[data-todo]").forEach(a => {
+    const key = (edu && a.dataset.linkEdu) || a.dataset.link || a.dataset.todo;
+    a.dataset.h0 = a.dataset.h0 || a.getAttribute("href");
+    if (/^(https:|mailto:)(?!\[)/.test(CONFIG[key])) { a.href = CONFIG[key]; a.onclick = null; return; }
+    a.setAttribute("href", a.dataset.h0);
+    a.onclick = e => {
+      e.preventDefault();
+      toast.textContent = (notes[key] || notes.stripe)[app.dataset.lang]; toast.hidden = false;
+      clearTimeout(tt); tt = setTimeout(() => toast.hidden = true, 2200);
+    };
+  });
+}
+links();
+
+// Page Services : interrupteur Standard / Éducation (prix et liens des packs)
+$$("[data-edu-set]").forEach(b => b.onclick = () => {
+  edu = b.dataset.eduSet === "1";
+  $$("[data-edu-set]").forEach(x => x.setAttribute("aria-pressed", x === b));
+  $$("[data-std]").forEach(el => el.textContent = edu ? el.dataset.edu : el.dataset.std);
+  links();
 });
 
 </script>

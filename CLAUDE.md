@@ -46,8 +46,8 @@ Tu endosses chacun de ces rôles selon la tâche. Avant de livrer, passe ta modi
 - HTML sémantique, CSS dans le `<style>`, JS dans le `<script>` en fin de page. Pas de bibliothèque.
 - Les couleurs passent par les variables CSS de `:root` (thème clair, et thème sombre via `prefers-color-scheme`).
 - **Bilingue FR/EN** : chaque texte existe deux fois, `<span lang="fr">…</span><span lang="en">…</span>`. Toute modification se fait dans les deux langues.
-- **Trois vues** pilotées par le hash : accueil (`/`), `#rushfold`, `#merci` (page de retour après paiement Stripe).
-- **Liens externes centralisés** dans l'objet `CONFIG` en haut du `<script>` (`stripe`, `download`). Tant qu'une valeur est vide, le bouton affiche une notice « à venir ».
+- **Quatre vues** pilotées par le hash : accueil (`/`), `#rushfold`, `#merci` (page « Ma licence »), `#services` (support inclus et services payants, avec son propre titre et sa propre description, et un interrupteur Standard / Éducation qui change prix et liens des packs).
+- **Liens externes centralisés** dans l'objet `CONFIG` en haut du `<script>` (`stripe`, `download`, et pour la page Services `support`, `contact`, `session`, `prioritaire`, `pack5`, `pack5_edu`, `pack20`, `pack20_edu`, `deploiement`). Un lien n'est actif que s'il commence par `https:` ou `mailto:` sans crochet ; sinon (vide ou placeholder `[…]`), le bouton affiche une notice « à venir ».
 - Responsive : aucun défilement horizontal à 400 px de large.
 
 ### 3. Performance

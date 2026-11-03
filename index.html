@@ -20,7 +20,7 @@
 @font-face{font-family:"JetBrains Mono";src:url(fonts/jetbrains-mono.woff2) format("woff2");font-weight:400 500;font-display:swap}
 :root{
   --bg:#0A0C10; --surface:#12151B; --fg:#F1F3F6; --muted:#98A1B0; --line:#232833; --edge:#3A4251;
-  --accent:#3B82F6; --accent-ink:#7EA9FA; --logo:#2F86C8;--price:#CFD6E4; --dim:#2A303B; color-scheme:dark;
+  --accent:#64748B; --accent-ink:#A9B6C9; --accent-on:#fff; --logo:#2F86C8;--price:#CFD6E4; --dim:#2A303B; color-scheme:dark;
   --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
   --body:"Instrument Sans", "Segoe UI", system-ui, sans-serif;
   --mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
@@ -53,7 +53,7 @@ nav a:hover,nav a[aria-current="page"]{color:var(--fg)}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;font:600 15px var(--body);text-decoration:none;cursor:pointer;border:1px solid var(--fg);background:var(--fg);color:var(--bg)}
-.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-on)}
 .btn,.appcard{transition:transform .15s}
 .btn:hover,.appcard:hover{transform:translate(-2px,-2px)}
 .btn:hover{box-shadow:4px 4px 0 var(--fg)}

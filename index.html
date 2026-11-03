@@ -147,6 +147,7 @@ details p{color:var(--muted);margin-top:10px;max-width:68ch}
 [data-view="services"] .plan.full>*{grid-column:1}
 [data-view="services"] .plan.full>ul{grid-column:2;grid-row:1/span 4;align-self:center}
 @media(max-width:760px){[data-view="services"] .plan.full{grid-template-columns:1fr}[data-view="services"] .plan.full>ul{grid-column:1;grid-row:auto}}
+.fnp{display:grid;gap:14px}.fnp[hidden]{display:none}.fnp p{color:var(--muted)}
 .seg{display:inline-flex;border:1px solid var(--edge)}
 .seg button{font:600 14px var(--body);padding:9px 16px;background:transparent;color:var(--muted);border:0;cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
@@ -327,33 +328,7 @@ footer .links{display:flex;gap:18px;flex-wrap:wrap}
   </div>
 
   <div>
-    <h2 class="h2"><span lang="fr">Aide personnelle</span><span lang="en">Personal help</span></h2>
-    <div class="plans">
-      <div class="plan">
-        <h3><span lang="fr">Session prise en main</span><span lang="en">Getting-started session</span></h3>
-        <div class="big">49 CHF</div>
-        <ul>
-          <li><span lang="fr">Visio de 30 min</span><span lang="en">30-min video call</span></li>
-          <li><span lang="fr">Réglages et raccourcis</span><span lang="en">Settings and shortcuts</span></li>
-          <li><span lang="fr">Intégration avec tes outils habituels</span><span lang="en">Integration with your usual tools</span></li>
-        </ul>
-        <a class="btn ghost" href="#services" data-link="session"><span lang="fr">Réserver</span><span lang="en">Book</span></a>
-      </div>
-      <div class="plan">
-        <h3><span lang="fr">Pack prioritaire 12 mois</span><span lang="en">12-month priority pack</span></h3>
-        <div class="big">99 CHF</div>
-        <ul>
-          <li><span lang="fr">Réponse sous 24 h ouvrées pendant 12 mois</span><span lang="en">Reply within 24 business hours for 12 months</span></li>
-          <li><span lang="fr">1 session visio de 30 min</span><span lang="en">1 video session of 30 min</span></li>
-          <li><span lang="fr">Paiement unique</span><span lang="en">One-time payment</span></li>
-        </ul>
-        <a class="btn ghost" href="#services" data-link="prioritaire"><span lang="fr">Acheter</span><span lang="en">Buy</span></a>
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <h2 class="h2"><span lang="fr">Équipes &amp; écoles</span><span lang="en">Teams &amp; schools</span></h2>
+    <h2 class="h2"><span lang="fr">Équipes &amp; éducation</span><span lang="en">Teams &amp; education</span></h2>
     <div style="margin-top:20px"><div class="seg" role="group" aria-label="Standard / Éducation">
       <button type="button" data-edu-set="0" aria-pressed="true">Standard</button>
       <button type="button" data-edu-set="1" aria-pressed="false"><span lang="fr">Éducation (-30 %)</span><span lang="en">Education (-30%)</span></button>
@@ -399,15 +374,23 @@ footer .links{display:flex;gap:18px;flex-wrap:wrap}
       </div>
       <div class="plan">
         <h3><span lang="fr">Fonction sur mesure</span><span lang="en">Custom feature</span></h3>
-        <div class="big"><span lang="fr">dès 800 CHF</span><span lang="en">from 800 CHF</span></div>
-        <ul>
-          <li><span lang="fr">Par défaut, la fonction financée est ajoutée à RushFold pour tous les utilisateurs (moins cher pour toi)</span><span lang="en">By default, the funded feature is added to RushFold for all users (cheaper for you)</span></li>
-          <li><span lang="fr">Version exclusive : prix ×2</span><span lang="en">Exclusive version: price ×2</span></li>
-        </ul>
+        <p class="note" style="font-size:15px"><span lang="fr">Il manque une fonction à ton équipe ? On peut l'ajouter.</span><span lang="en">Missing a feature for your team? We can add it.</span></p>
+        <div><div class="seg" role="group" aria-label="Partagée / Exclusive">
+          <button type="button" data-fn-set="0" aria-pressed="true"><span lang="fr">Partagée</span><span lang="en">Shared</span></button>
+          <button type="button" data-fn-set="1" aria-pressed="false"><span lang="fr">Exclusive</span><span lang="en">Exclusive</span></button>
+        </div></div>
+        <div class="fnp" data-fn-panel="0">
+          <div class="big"><span lang="fr">dès 800 CHF</span><span lang="en">from 800 CHF</span></div>
+          <p><span lang="fr">Intégrée à RushFold pour tous les utilisateurs. Elle suit chaque mise à jour, sans frais de maintenance.</span><span lang="en">Built into RushFold for all users. It follows every update, with no maintenance fee.</span></p>
+        </div>
+        <div class="fnp" data-fn-panel="1" hidden>
+          <div class="big"><span lang="fr">dès 1&nbsp;600 CHF</span><span lang="en">from 1&nbsp;600 CHF</span></div>
+          <p><span lang="fr">Réservée à ton organisation. 12 mois de mises à jour inclus, puis maintenance à 99 CHF/an.</span><span lang="en">Reserved for your organisation. 12 months of updates included, then maintenance at 99 CHF/year.</span></p>
+        </div>
         <a class="btn ghost" href="#services" data-link="contact"><span lang="fr">Demander un devis</span><span lang="en">Ask for a quote</span></a>
       </div>
     </div>
-    <p class="note" style="margin-top:16px"><span lang="fr">Appel de découverte de 15 min offert.</span><span lang="en">Free 15-min discovery call.</span></p>
+    <p class="note" style="margin-top:16px"><span lang="fr">Appel de 15 min offert · Prix exact sur devis</span><span lang="en">Free 15-min call · Exact price on quote</span></p>
   </div>
 
   <div>
@@ -473,8 +456,6 @@ const CONFIG = {
   // Page Services : liens https://… (Stripe) ou mailto:… ; tant qu'un lien n'est pas valide, le bouton affiche une notice
   support: "mailto:[EMAIL_SUPPORT]",
   contact: "mailto:[EMAIL_CONTACT]",
-  session: "[LIEN_STRIPE_SESSION]",
-  prioritaire: "[LIEN_STRIPE_PRIORITAIRE]",
   pack5: "[LIEN_STRIPE_PACK5]",
   pack5_edu: "[LIEN_STRIPE_PACK5_EDU]",
   pack20: "[LIEN_STRIPE_PACK20]",
@@ -489,8 +470,8 @@ const app = $("#app");
 // Titre et description par vue (la page Services a les siens)
 const title0 = document.title, descEl = $('meta[name="description"]'), desc0 = descEl.content;
 const seo = {
-  fr: { t: "Services | Kortan", d: "Support inclus avec RushFold, sessions de prise en main, packs équipes et écoles, versions sur mesure. Prix en CHF." },
-  en: { t: "Services | Kortan", d: "Support included with RushFold, onboarding sessions, team and school packs, custom builds. Prices in CHF." }
+  fr: { t: "Services | Kortan", d: "Support inclus avec RushFold, packs équipes et éducation, versions sur mesure. Prix en CHF." },
+  en: { t: "Services | Kortan", d: "Support included with RushFold, team and education packs, custom builds. Prices in CHF." }
 };
 let view = "home";
 function meta() {
@@ -542,6 +523,12 @@ function links() {
   });
 }
 links();
+
+// Page Services : bascule Partagée / Exclusive (fonction sur mesure)
+$$("[data-fn-set]").forEach(b => b.onclick = () => {
+  $$("[data-fn-set]").forEach(x => x.setAttribute("aria-pressed", x === b));
+  $$("[data-fn-panel]").forEach(p => p.hidden = p.dataset.fnPanel !== b.dataset.fnSet);
+});
 
 // Page Services : interrupteur Standard / Éducation (prix et liens des packs)
 $$("[data-edu-set]").forEach(b => b.onclick = () => {

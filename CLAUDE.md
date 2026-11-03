@@ -100,7 +100,7 @@ Avant chaque mise en ligne, vérifie avec les outils déjà présents dans ton e
 - **Prix** : licence à vie 14.90 CHF / 14.90 €, prix de lancement 9.90 CHF / 9.90 € jusqu'au 31 décembre. Valable pour toutes les versions 1.x.
 - **Démo** : même .exe que la version complète, limitée à 5 exports au total. La licence, vérifiée hors ligne, débloque l'app.
 - **Téléchargement** : GitHub Releases d'un dépôt public séparé (ex. `kortan/rushfold`), fichier toujours nommé `RushFold-Setup.exe`, lien permanent `…/releases/latest/download/RushFold-Setup.exe`.
-- **Support** : `kortan.support@proton.me`.
+- **Support** : `contact@kortan.app`.
 - **Domaine** : pas encore choisi (`kortan.app` ou `kortan.ch`, chez Infomaniak).
 
 ## Plus tard (seulement sur demande)

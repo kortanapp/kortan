@@ -24,6 +24,7 @@ Ces règles passent avant tout le reste, à chaque modification.
 |---|---|
 | `index.html` | Tout le site : accueil, page RushFold, page Merci, CSS, JS, favicon. |
 | `fonts/` (3 fichiers woff2) | Polices du design, réduites aux graisses et caractères utilisés (88 Ko au total). Hébergées ici plutôt que chez Google pour la vie privée des visiteurs. Les intégrer dans le HTML alourdirait la page d'un tiers. |
+| `rushfold-logo.webp` (18 Ko) | Logo RushFold affiché à la place du titre en tête de la page RushFold (WebP transparent, 1040 px de large pour les écrans denses). |
 | `rushfold-hero-*` (2 WebP + 1 PNG) | Capture de l'app affichée en tête de la page RushFold. Le navigateur charge un WebP (24 Ko en 1200 px, 53 Ko en 2000 px) ; le PNG (203 Ko) n'est qu'un secours pour les très vieux navigateurs. Une image ne peut pas être intégrée au HTML sans l'alourdir. |
 | `.nojekyll` | Fichier vide : GitHub Pages sert les fichiers tels quels, sans étape de build. |
 | `CLAUDE.md` | Ce document. Public dans le dépôt : n'y écris jamais rien de confidentiel. |
